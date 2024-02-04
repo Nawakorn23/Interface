@@ -1,0 +1,26 @@
+@startuml
+class fighters.derived.Guildmaster {
++ <<Create>> Guildmaster(int,int,int,int,int)
++ boolean move(int)
++ int attack(Unit)
++ void guard()
+}
+class fighters.derived.Tank {
++ <<Create>> Tank(int,int,int,int)
++ void guard()
++ boolean move(int)
+}
+class fighters.derived.Wizard {
++ <<Create>> Wizard(int,int,int,int)
++ int attack(Unit)
+}
+
+
+fighters.base.Attackable <|.. fighters.derived.Guildmaster
+fighters.base.Guardable <|.. fighters.derived.Guildmaster
+fighters.base.Unit <|-- fighters.derived.Guildmaster
+fighters.base.Guardable <|.. fighters.derived.Tank
+fighters.base.Unit <|-- fighters.derived.Tank
+fighters.base.Attackable <|.. fighters.derived.Wizard
+fighters.base.Unit <|-- fighters.derived.Wizard
+@enduml
